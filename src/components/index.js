@@ -21,7 +21,7 @@ export{
     Button,
     RTE,
     PostForm,
-    PostCard,
+    Post,
     AuthLayout, 
     Input,
     Select,
