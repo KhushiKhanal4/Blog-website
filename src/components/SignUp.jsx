@@ -24,6 +24,7 @@ function SignUp() {
                     dispatch(login(userData));
                     navigate("/")
                 }
+                return await this.login({ email, password });
             }
         } catch (error) {
             setError(error.message)

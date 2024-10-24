@@ -3,7 +3,7 @@ import config from "../conf/config.js";
 
 //class
 export class AuthService {
-    client = new Client;
+    client = new Client();
     account;
 
     constructor() {
@@ -19,7 +19,7 @@ export class AuthService {
             if (userAccount) {
                 return this.login({ email, password });
             } else {
-                return userAccount
+                return userAccount;
             }
 
         } catch (error) {
@@ -29,8 +29,7 @@ export class AuthService {
 
     async login({ email, password }) {
         try {
-            const session = await this.account.createEmailPasswordSession(email, password);
-            return session;
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error;
         }
@@ -39,16 +38,16 @@ export class AuthService {
 
     async getCurrentUser() {
         try {
-            return await this.account.get();
+            await this.account.get();
         } catch (error) {
             throw error;
         }
-        return NULL;
+        return null ;
     }
 
     async logout() {
         try {
-            return await this.account.deleteSessions();
+            await this.account.deleteSessions();
         } catch (error) {
             throw (error);
         }

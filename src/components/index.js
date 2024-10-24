@@ -26,6 +26,6 @@ export{
     AuthLayout, 
     Input,
     Select,
-    Login,
+    Login
     
 }
