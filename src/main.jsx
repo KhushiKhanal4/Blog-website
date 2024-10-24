@@ -4,14 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter,createRoutesFromElements } from 'react-router-dom'
 import Home from './pages/Home.jsx'
-import { AuthLayout, Login } from './components/index.js'
+import { AuthLayout } from './components/index.js'
 import AddPost from "./pages/AddPost";
 import Signup from './pages/Signup'
+import Login from './pages/Login'
 import EditPost from "./pages/EditPost";
 import Post from "./pages/Post";
-import AllPosts from "./pages/AllPosts";
+import AllPost from "./pages/AllPost";
 
 // const router = createBrowserRouter([
 //     {
@@ -76,10 +77,10 @@ import AllPosts from "./pages/AllPosts";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Router path="/" element={<App />}>
-            <Router path="/" element={<Home />} />
+        <Route path="/" element={<App />}>
+            <Route path="/" element={<Home />} />
 
-            <Router
+            <Route
                 path="/login"
                 element={
                     <AuthLayout authentication={false}>
@@ -88,7 +89,7 @@ const router = createBrowserRouter(
                 }
             />
 
-            <Router
+            <Route
                 path="/signup"
                 element={
                     <AuthLayout authentication={false}>
@@ -97,17 +98,17 @@ const router = createBrowserRouter(
                 }
             />
 
-            <Router
+            <Route
                 path="/all-posts"
                 element={
                     <AuthLayout authentication>
                         {" "}
-                        <AllPosts />
+                        <AllPost />
                     </AuthLayout>
                 }
             />
 
-            <Router
+            <Route
                 path="/add-post"
                 element={
                     <AuthLayout authentication>
@@ -116,7 +117,7 @@ const router = createBrowserRouter(
                     </AuthLayout>
                 } />
 
-            <Router
+            <Route
                 path="/edit-post/:slug"
                 element={
                     <AuthLayout authentication>
@@ -126,11 +127,11 @@ const router = createBrowserRouter(
                 }
             />
 
-            <Router
+            <Route
                 path="/post/:slug"
                 element={<Post />}
             />
-        </Router>
+        </Route>
 
     )
 )

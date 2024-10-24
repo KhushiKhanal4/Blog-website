@@ -4,6 +4,7 @@ import Container from "./Container/Container";
 import Logo from "./Logo";
 import LogoutButton from "./Header/LogoutButton";
 import Button from "./Button";
+import Select from "./Select";
 import RTE from "./RTE";
 import Login from "./Login";
 import SignUp from './SignUp'
@@ -18,7 +19,7 @@ export{
     Container,
     Logo,
     LogoutButton,
-    Button,
+    Button,SignUp,
     RTE,
     PostForm,
     Post,
@@ -26,5 +27,5 @@ export{
     Input,
     Select,
     Login,
-    SignUp,
+    
 }

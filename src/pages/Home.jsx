@@ -14,7 +14,7 @@ function Home() {
 
     }, [])
 
-    return (posts.length === 0) ? (
+    if (posts.length === 0)  {
         <div className="w-full py-8 mt-4 text-center">
             <Container>
                 <div className="flex flex-wrap">
@@ -26,8 +26,8 @@ function Home() {
                 </div>
             </Container>
         </div>
-    ) :
-        (
+    } else{
+        
             <div className='w-full py-8'>
                 <Container>
                     <div className='flex flex-wrap'>
@@ -39,7 +39,7 @@ function Home() {
                     </div>
                 </Container>
             </div>
-        )
+        }
 }
 
 export default Home
