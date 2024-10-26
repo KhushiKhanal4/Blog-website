@@ -14,25 +14,26 @@ export class AuthService {
     }
 
     async createAccount({ email, password, name }) {
-        try {
-            const userAccount = await this.account.create(ID.unique(), email, password, name);
-            if (userAccount) {
-                return this.login({ email, password });
-            } else {
-                return userAccount;
-            }
+        const promise = account.create(ID.unique(), email, name,password);
 
-        } catch (error) {
-            throw error;
-        }
+        promise.then(function (response) {
+            console.log(response); // Success
+        }, function (error) {
+            console.log(error); // Failure
+        });
     }
 
     async login({ email, password }) {
-        try {
-            return await this.account.createEmailPasswordSession(email, password);
-        } catch (error) {
-            throw error;
-        }
+        
+        
+        const promise = account.createEmailPasswordSession({email,password});
+        
+        promise.then(function (response) {
+            console.log(response); // Success
+        }, function (error) {
+            console.log(error); // Failure
+        });
+        
 
     }
 
